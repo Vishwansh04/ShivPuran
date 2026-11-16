@@ -13,7 +13,7 @@ const S=[["तपस्वी महंत लक्ष्मण दास ज�
 const F="सुरेश चंद विज,अविनाश भार्गव,मंगतराम त्यागी,बाल किशन,संजीव कुमार,भगवान देवी अग्रवाल,राजबीर सिंह गौड़,राजगोयल,रामरती देवी,पवन अग्रवाल,महिपाल,श्रीपाल,रामपाल,प्रेम नारायण दुबे,राज किशोर भार्गव,हीरा सिंह,कमलेश देवी (गुरुमाता),पूनम,कृष्ण विज,रेणु गोयल,सुजाता विज".split(",");
 const MA=[["डॉ० पंकज सिंह जी","मंत्री स्वास्थ्य एवं परिवार कल्याण, परिवहन और सूचना प्रौद्योगिकी, विधायक विकासपुरी"],["श्रीमति राखी आशीष यादव जी","निगम पार्षद"],["श्री सुभाष मग्गो जी","माता रूप रानी मग्गो अस्पताल, उत्तम नगर"],["श्री महेंद्र यादव जी","पूर्व विधायक"]];
 const Y="रजत शर्मा (प्रह्लादपुर),राजीव चौधरी संग अंजली जी (बिजनौर),अंशुल राजपूत संग साक्षी जी (गुरुग्राम),विकास राजपूत संग रूपा जी (बिजनौर),अशोक जी संग शिवा वर्मा जी (उत्तम नगर),प्रमोद सचदेवा (गाज़ियाबाद),विनोद कुमार गौड़ (हस्तसाल विहार),रेणु ओझा जी (सागरपुर),मनमोहन जी (बंगलौर),मुकेश कुमार जी (कोठपुतली),अमित गुप्ता (मेरठ),हेमंत रंजन (उत्तम नगर),चक्रधर जी,प्रेम बल्लभ जी".split(",");
-const C=[["कुलदीप कुमार (प्रधान)","9625901108"],["राकेश कुमार","8287731108"],["हेमंत रंजन","8700921108"],["अशोक वर्मा","9625751108"],["अमन भाटिया (मिंटू)","8510921108"],["अर्पण","9625731108"],["आकाश चौधरी","8700931108"],["यश चौधरी","8920051108"],["सक्षम शर्मा","9560885882"]];
+const C=[["कुलदीप कुमार (प्रधान)","9625901108"],["राकेश कुमार","8287731108"],["हेमंत रंजन","8700921108"],["अशोक वर्मा","9625751108"],["अमन भाटिया (मिंटू)","8510921108"],["अर्पण","9625731108"],["आकाश चौधरी","8700931108"],["यश चौधरी","8920051108"],["सक्षम शर्मा","9560885882"],["सौरभ जांगिड़","7838407478"],["कुशाग्र शर्मा","9773944157"],["सौरभ मिश्रा","8700400776"],["विश्वांश राजपूत","8449144472"],["सुखेन्द्र त्यागी","8076265964"],["अनिल धवन","9891548827"],["घनश्याम","9716585585"],["मुकेश कुमार","9354944103"],["दीपक मल्होत्रा","9891364493"],["संदीप दुग्गल","9871666229"],["दीपक चौधरी","9718324194"],["स्वांकित धवन","9582535953"],["अतुल त्यागी","7838005000"],["संजय सेठ","8527410690"],["अरुण","9210334255"],["अतुल सोलंकी","9654815621"],["यश सेठ","8527523551"]];
 const $=s=>document.querySelector(s)||{},$$=s=>[...document.querySelectorAll(s)];
 const P=[["home","मुख्य पृष्ठ"],["karyakram","कार्यक्रम"],["prasang","प्रसंग"],["sant","संत सम्मेलन"],["yajman","यजमान"],["sampark","संपर्क"]];
 $("#nav").innerHTML=P.map(p=>`<a href="${p[0]=='home'?'index':p[0]}.html" data-p="${p[0]}">${p[1]}</a>`).join("");
@@ -38,12 +38,13 @@ const cls=()=>$("#ov").classList.remove("on");
 $("#ov").onclick=e=>{if(e.target.id=="ov"||e.target.classList.contains("x"))cls()};
 addEventListener("keydown",e=>e.key=="Escape"&&cls());
 document.addEventListener("click",e=>{
+if(e.target.closest("#cpy")){const t=e.target.closest("#cpy");try{navigator.clipboard.writeText("11166237538@okbizaxis")}catch(x){}t.textContent="✅ कॉपी हो गया";return}
 if(e.target.closest("[data-nolive]")){e.preventDefault();return open_(`<h3>▶ लाइव प्रसारण</h3><p>इस कार्यक्रम का YouTube लाइव लिंक जल्द ही यहाँ उपलब्ध होगा।</p><button class="btn x2" onclick="document.getElementById('ov').classList.remove('on')">ठीक है</button>`)}
 
 const ev=e.target.closest("[data-ev]");if(ev){const v=EV[ev.dataset.ev];return open_(`${evimg(ev.dataset.ev)}<h3>${v.t}</h3><p>${v.l.join("<br>")}</p><p style="color:var(--gold)">${v.n}</p>`)}
 const t=e.target.closest("[data-t]");if(t){const v=T.find(x=>x[0]==t.dataset.t);return open_(`<img src="${TI[v[0]]}" alt=""><h3>${v[1]}</h3><p>शिव महापुराण कथा का दिव्य प्रसंग<br>🕐 प्रतिदिन दोपहर 1 बजे से · होली चौक ग्राउंड</p>`)}
 const s=e.target.closest("[data-s]");if(s){const v=S[s.dataset.s];return open_(`<img src="${SP+v[2]}" alt=""><h3>${v[0]}</h3><p>${v[1]}</p><p style="color:var(--gold)">॥ श्री सदगुरू देवाय नमः ॥</p>`)}
-if(e.target.closest("[data-don]"))open_(`<h3>🙏 दान / सेवा</h3><p>श्री शिव शक्ति हनुमान मंदिर (ट्रस्ट)<br><b style="color:var(--gold)">GPay : 11166237538@okbizaxis</b></p><p style="font-size:.9rem">Shiv Shakti Hanuman Mandir Trust<br>A/c 112505000563 · IFSC ICICI0001125<br>ICICI, Uttam Nagar Branch</p><p style="font-size:.9rem">Shri Shiv Shakti Hanuman Mandir Trust<br>A/c 603910110001666 · IFSC BKID0006039<br>Vikaspuri Branch</p>`);
+if(e.target.closest("[data-don]"))open_(`<h3>🙏 दान / सेवा</h3><p>श्री शिव शक्ति हनुमान मंदिर (ट्रस्ट)</p><div class="qrbox"><img src="images/qr.png" alt="भुगतान QR कोड"></div><p style="font-size:.92rem">QR स्कैन करके GPay / PhonePe / Paytm से दान करें</p><p><b style="color:var(--gold)">GPay : 11166237538@okbizaxis</b></p><button class="btn o" id="cpy">📋 UPI ID कॉपी करें</button><p style="font-size:.9rem">Shiv Shakti Hanuman Mandir Trust<br>A/c 112505000563 · IFSC ICICI0001125<br>ICICI, Uttam Nagar Branch</p><p style="font-size:.9rem">Shri Shiv Shakti Hanuman Mandir Trust<br>A/c 603910110001666 · IFSC BKID0006039<br>Vikaspuri Branch</p>`);
 const r=document.createElement("i");r.className="dot";r.style.left=e.clientX-4+"px";r.style.top=e.clientY-4+"px";r.style.position="fixed";r.style.zIndex=99;document.body.appendChild(r);setTimeout(()=>r.remove(),900)});
 let n=+0;$("#fab").onclick=()=>{open_(`<div class="big yo" id="jp">ॐ</div><h3>॥ ॐ नमः शिवाय ॥</h3><p>जाप गिनने के लिए नीचे दबाएँ</p><div class="big" id="jn">${n}</div><button class="btn" id="jb" style="font-size:1.3rem">ॐ नमः शिवाय</button><p style="font-size:.9rem;opacity:.8">हर हर महादेव 🔱</p>`);$("#jb").onclick=()=>{$("#jn").textContent=++n;const j=$("#jp");j.style.transition="transform .25s";j.style.transform="scale(1.4)";setTimeout(()=>j.style.transform="",250)}};
 const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:.12});
@@ -58,3 +59,12 @@ tick();setInterval(tick,1000);
 
 document.addEventListener("click",e=>{const a=e.target.closest("a[href$='.html']");if(a&&!a.target&&!e.metaKey&&!e.ctrlKey&&!e.shiftKey){e.preventDefault();document.body.classList.add("out");setTimeout(()=>location.href=a.href,300)}});
 addEventListener("pageshow",()=>document.body.classList.remove("out"));
+
+(function(){const v=$("#hv"),b=$("#snd");if(!v.play||!b.addEventListener)return;
+const lab=()=>b.textContent=v.paused?"▶ वीडियो चलाएँ":v.muted?"🔇 आवाज़ चालू करें":"🔊 आवाज़ बंद करें";
+b.onclick=e=>{e.stopPropagation();if(v.paused){delete v.dataset.u;v.play()}else v.muted=!v.muted;lab()};
+v.addEventListener("click",()=>{if(v.paused){delete v.dataset.u;v.play()}else{v.dataset.u=1;v.pause()}lab()});
+["play","pause","volumechange"].forEach(t=>v.addEventListener(t,lab));
+const pr=v.play();if(pr&&pr.catch)pr.catch(lab);
+new IntersectionObserver(es=>es.forEach(x=>{if(!x.isIntersecting&&!v.paused)v.pause();else if(x.isIntersecting&&v.paused&&!v.dataset.u)v.play().catch(()=>{})}),{threshold:.25}).observe(v);
+})();
