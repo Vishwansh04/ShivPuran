@@ -1,11 +1,13 @@
 
-const I={ev_kalash:"images/ev_kalash.webp",ev_havan:"images/ev_havan.webp",shiva:"images/shiva.jpg"};
+const I={ev_kalash:"images/ev_kalash.webp",ev_havan:"images/ev_havan.webp",shiva:"images/shiva.jpg",hero:"images/hero.jpg"};
 const T=[["jyot","द्वादश ज्योतिर्लिंग वर्णन"],["vivah","शिव विवाह"],["kirat","शिव भक्त किरात"],["charit","शिव चरितामृत"],["ganesh","गणेश कार्तिक जन्म"],["mahatmya","महात्म्य"],["swaroop","शिव स्वरूप व्याख्यान और प्राकट्य"],["sati","सती चरित्र"],["ratri","शिव रात्रि माहात्म्य"],["havan","हवन"],["bhandara","भंडारा"],["kalash","कलश यात्रा"]];
 const TI=Object.fromEntries(T.map(t=>[t[0],"images/t_"+t[0]+".webp"]));
 const EV={kalash:{t:"कलश यात्रा",i:"ev_kalash",l:["📅 03 जनवरी 2027 (रविवार)","🕘 प्रातः 9 बजे","📍 श्री शिव शक्ति हनुमान मंदिर (ट्रस्ट)"],n:"भक्ति और उल्लास के साथ कथा का शुभारंभ"},
-katha:{t:"शिव महापुराण कथा",i:"shiva",l:["📅 03 से 12 जनवरी 2027","🕐 प्रतिदिन दोपहर 1 बजे से प्रभु इच्छा तक","📍 होली चौक ग्राउंड"],n:"दस दिन तक शिव कथा का अमृत"},
-sant:{t:"संत सम्मेलन",i:"shiva",l:["📅 10 जनवरी 2027","🕓 सायं 4 बजे","📍 होली चौक ग्राउंड"],n:"संत-महात्माओं का हार्दिक स्वागत एवं अभिनंदन"},
+katha:{t:"शिव महापुराण कथा",i:"hero",p:"center 40%",l:["📅 03 से 12 जनवरी 2027","🕐 प्रतिदिन दोपहर 1 बजे से प्रभु इच्छा तक","📍 होली चौक ग्राउंड"],n:"दस दिन तक शिव कथा का अमृत"},
+sant:{t:"संत सम्मेलन",i:"shiva",p:"center 58%",l:["📅 10 जनवरी 2027","🕓 सायं 4 बजे","📍 होली चौक ग्राउंड"],n:"संत-महात्माओं का हार्दिक स्वागत एवं अभिनंदन"},
 havan:{t:"हवन एवं भंडारा",i:"ev_havan",l:["📅 12 जनवरी 2027 (मंगलवार)","🔥 हवन : प्रातः 8 बजे","🍛 भंडारा : प्रातः 10 बजे","📍 होली चौक मैदान"],n:"पूर्णाहुति एवं प्रसाद वितरण"}};
+const OV={kalash:[["9%","35.4%","40%","10.8%","दिनांक: 03 जनवरी<br>2027 (रविवार)"],["51.5%","35.4%","39.5%","10.8%","समय:<br>प्रातः 9 बजे"],["9%","88.2%","82%","8.6%","स्थल: श्री शिव शक्ति हनुमान मंदिर (ट्रस्ट)","w"]],havan:[["9%","86.2%","83%","10%","स्थल: होली चौक मैदान"]]};
+const evimg=k=>{const e=EV[k];return `<div class="evbox"><img src="${I[e.i]}" alt="${e.t}" style="object-position:${e.p||"center"}">${(OV[k]||[]).map(o=>`<span class="evt${o[5]?" w":""}" style="left:${o[0]};top:${o[1]};width:${o[2]};height:${o[3]}">${o[4]}</span>`).join("")}</div>`};
 const SP="images/";
 const S=[["तपस्वी महंत लक्ष्मण दास जी","(हाई कोर्ट) मौनी बाबा उदासीन समाज सेवा आश्रम, पीपल कोटी","01-laxman-das-hc.jpg"],["श्री परम पूज्य सदगुरु जी महाराज","मंदिर संस्थापक","02-sadguru-ji.jpg"],["हरिहर पीठाधीश्वर महंत सुयज्ञ मुनि जी महाराज","हरिहर आश्रम, दिल्ली","03-suyagya-muni.jpg"],["महंत रामनौमी दास सतगुरुदास जी महाराज","श्री पंचायती अखाड़ा बड़ा उदासीन","04-ramnaumi-das.jpg"],["महंत अमित दास गुरुजी","अखाड़ा बड़ा उदासीन · संरक्षक एवं संचालक, श्री शिव शक्ति हनुमान मंदिर ट्रस्ट","05-amit-das.jpg"],["महंत श्री प्रद्युम्न मुनि जी महाराज","श्री 108 बाबा बजरंगदास जी की बगीची, जयपुर","06-pradhumn-muni.jpg"],["महंत कमलदास जी महाराज","डेरा बाबा मोहन दास, जैतो मंडी, पंजाब","07-kamal-das.jpg"],["महामंडलेश्वर स्वामी जगदीश दास जी महाराज","हनुमान मंदिर, पलवल, हरियाणा","08-jagdish-das.jpg"],["महंत सेवादास जी महाराज","कोटफत्ता, पंजाब","09-seva-das.jpg"],["महामंडलेश्वर स्वामी हरि चेतना नंद जी","हरि सेवा आश्रम, हरिद्वार","10-chetnanand.jpg"],["महंत शांति दास जी महाराज","कैथल, हरियाणा","11-shanti-das.jpg"],["महंत शांतानंद जी महाराज","पंजाब","12-shantanand.jpg"],["महंत लक्ष्मण दास","पंचायती अखाड़ा बड़ा उदासीन, वाराणसी","13-laxman-das-varanasi.jpg"],["महंत डॉ० मनोहर दास","श्री 108 श्री योगमाया पंचायती अखाड़ा बड़ा उदासीन, सदर बाज़ार, जमालपुर","14-manohar-das.jpg"],["महंत ईश्वरदास जी (उदासीन)","श्री सिद्ध बाबा मंदिर, राम पार्क, ईलायचीपुर, लोनी, उ.प्र.","15-ishwar-das.jpg"],["महंत जयरामदास जी (उदासीन)","मौनी बाबा उदासीन समाज सेवा आश्रम, पीपल कोटी","16-jayram-das.jpg"],["श्री सुनील विज","प्रमुख सेवादार, श्री शिव शक्ति हनुमान मंदिर","17-sunil-vij.jpg"],["पं० धर्मराज शास्त्री","मंदिर पुजारी, श्री शिव शक्ति हनुमान मंदिर","18-dharmraj-shastri.jpg"]];
 const F="सुरेश चंद विज,अविनाश भार्गव,मंगतराम त्यागी,बाल किशन,संजीव कुमार,भगवान देवी अग्रवाल,राजबीर सिंह गौड़,राजगोयल,रामरती देवी,पवन अग्रवाल,महिपाल,श्रीपाल,रामपाल,प्रेम नारायण दुबे,राज किशोर भार्गव,हीरा सिंह,कमलेश देवी (गुरुमाता),पूनम,कृष्ण विज,रेणु गोयल,सुजाता विज".split(",");
@@ -15,7 +17,7 @@ const C=[["कुलदीप कुमार (प्रधान)","9625901108"
 const $=s=>document.querySelector(s)||{},$$=s=>[...document.querySelectorAll(s)];
 const P=[["home","मुख्य पृष्ठ"],["karyakram","कार्यक्रम"],["prasang","प्रसंग"],["sant","संत सम्मेलन"],["yajman","यजमान"],["sampark","संपर्क"]];
 $("#nav").innerHTML=P.map(p=>`<a href="${p[0]=='home'?'index':p[0]}.html" data-p="${p[0]}">${p[1]}</a>`).join("");
-$("#evs").innerHTML=Object.entries(EV).map(([k,e])=>`<div class="card click rv" data-ev="${k}"><img class="evimg" src="${I[e.i]}" alt=""><h3>${e.t}</h3><p style="font-size:.9rem">${e.l[0]}</p></div>`).join("");
+$("#evs").innerHTML=Object.entries(EV).map(([k,e])=>`<div class="card click rv" data-ev="${k}">${evimg(k)}<h3>${e.t}</h3><p style="font-size:.9rem">${e.l[0]}</p></div>`).join("");
 const tile=(t)=>`<div class="card tile click rv" data-t="${t[0]}"><img src="${TI[t[0]]}" alt="${t[1]}"><h3 style="font-size:1.05rem;text-align:center">${t[1]}</h3></div>`;
 $("#pv").innerHTML=T.slice(0,4).map(tile).join("");$("#pa").innerHTML=T.map(tile).join("");
 const D=["रविवार","सोमवार","मंगलवार","बुधवार","बृहस्पतिवार","शुक्रवार","शनिवार"];
@@ -38,7 +40,7 @@ addEventListener("keydown",e=>e.key=="Escape"&&cls());
 document.addEventListener("click",e=>{
 if(e.target.closest("[data-nolive]")){e.preventDefault();return open_(`<h3>▶ लाइव प्रसारण</h3><p>इस कार्यक्रम का YouTube लाइव लिंक जल्द ही यहाँ उपलब्ध होगा।</p><button class="btn x2" onclick="document.getElementById('ov').classList.remove('on')">ठीक है</button>`)}
 
-const ev=e.target.closest("[data-ev]");if(ev){const v=EV[ev.dataset.ev];return open_(`<img src="${I[v.i]}" alt=""><h3>${v.t}</h3><p>${v.l.join("<br>")}</p><p style="color:var(--gold)">${v.n}</p>`)}
+const ev=e.target.closest("[data-ev]");if(ev){const v=EV[ev.dataset.ev];return open_(`${evimg(ev.dataset.ev)}<h3>${v.t}</h3><p>${v.l.join("<br>")}</p><p style="color:var(--gold)">${v.n}</p>`)}
 const t=e.target.closest("[data-t]");if(t){const v=T.find(x=>x[0]==t.dataset.t);return open_(`<img src="${TI[v[0]]}" alt=""><h3>${v[1]}</h3><p>शिव महापुराण कथा का दिव्य प्रसंग<br>🕐 प्रतिदिन दोपहर 1 बजे से · होली चौक ग्राउंड</p>`)}
 const s=e.target.closest("[data-s]");if(s){const v=S[s.dataset.s];return open_(`<img src="${SP+v[2]}" alt=""><h3>${v[0]}</h3><p>${v[1]}</p><p style="color:var(--gold)">॥ श्री सदगुरू देवाय नमः ॥</p>`)}
 if(e.target.closest("[data-don]"))open_(`<h3>🙏 दान / सेवा</h3><p>श्री शिव शक्ति हनुमान मंदिर (ट्रस्ट)<br><b style="color:var(--gold)">GPay : 11166237538@okbizaxis</b></p><p style="font-size:.9rem">Shiv Shakti Hanuman Mandir Trust<br>A/c 112505000563 · IFSC ICICI0001125<br>ICICI, Uttam Nagar Branch</p><p style="font-size:.9rem">Shri Shiv Shakti Hanuman Mandir Trust<br>A/c 603910110001666 · IFSC BKID0006039<br>Vikaspuri Branch</p>`);
