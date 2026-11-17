@@ -5,4 +5,4 @@ const LIVE={"3-kalash":"","3-katha":"","4-katha":"","5-katha":"","6-katha":"","7
 
 /* ===== सोशल मीडिया लिंक (फूटर के बटन) =====
  यहाँ अपने पेज/चैनल के पूरे लिंक डालिए। खाली छोड़ने पर बटन "जल्द उपलब्ध" दिखाएगा। */
-const SOCIAL={youtube:"https://www.youtube.com/@Mahantamitguruji",facebook:"",instagram:""};
+const SOCIAL={youtube:"https://www.youtube.com/@Mahantamitguruji",facebook:"https://www.facebook.com/share/1FQ5rekHZ3/",instagram:"https://www.instagram.com/guruji_1108?utm_source=qr&exln=MWFyOTl2dGxpeXF5aA=="};
